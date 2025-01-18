@@ -52,11 +52,24 @@ An interactive web application for estimating human poses in images using OpenCV
 ## File Structure
 
 ```
-├── app.py                # Main application file
-├── requirements.txt      # Python dependencies
-├── graph_opt.pb          # Pre-trained TensorFlow model
-├── stand.jpg             # Default demo image
-└── README.md             # Project documentation
+Human-Pose-Estimation-using-Machine-Learning/
+├── .venv/                          # Virtual environment
+├── venv/                           # Another virtual environment
+├── .gitattributes                  # Git attributes file
+├── OutPut-image.png                # Example output image
+├── README.md                       # Project README file
+├── estimation_app1.py              # Estimation application script
+├── graph_opt.pb                    # Pre-trained TensorFlow model
+├── output.mov                      # Example output video
+├── pose-gif.gif                    # Pose estimation demo GIF
+├── pose_estimation.py              # Script for image-based pose estimation
+├── pose_estimation_Video.py        # Script for video-based pose estimation
+├── requirements.txt                # Python dependencies
+├── run.jpg                         # Example input image (run pose)
+├── run.mov                         # Example input video (run pose)
+├── run1.mp4                        # Another example input video
+└── stand.jpg                       # Default demo image
+
 ```
 
 ---
