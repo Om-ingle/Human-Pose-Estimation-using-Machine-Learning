@@ -1,5 +1,5 @@
 # Human-Pose-Estimation-using-Machine-Learning
-# Human Pose Estimation using Machine Learning
+
 
 An interactive web application for estimating human poses in images using OpenCV's deep learning module and TensorFlow.
 
