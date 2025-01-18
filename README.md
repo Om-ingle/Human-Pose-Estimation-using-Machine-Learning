@@ -17,7 +17,11 @@ An interactive web application for estimating human poses in images using OpenCV
 
 ## Demo
 
-![Demo GIF](https://example.com/demo-gif) *(Replace with actual link or image)*
+
+![image](https://github.com/user-attachments/assets/453e402f-6863-47a6-b2d3-0b2450dd943f)
+![image](https://github.com/user-attachments/assets/04712ea7-ed86-4548-8432-fe043fad76b8)
+
+
 
 ---
 
