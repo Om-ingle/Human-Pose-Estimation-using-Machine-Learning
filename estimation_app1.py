@@ -3,6 +3,7 @@ from PIL import Image
 import numpy as np
 import cv2
 
+# Constants
 DEMO_IMAGE = 'stand.jpg'
 
 BODY_PARTS = { "Nose": 0, "Neck": 1, "RShoulder": 2, "RElbow": 3, "RWrist": 4,
@@ -25,15 +26,39 @@ inHeight = height
 # Load the pre-trained model
 net = cv2.dnn.readNetFromTensorflow("graph_opt.pb")
 
-# App title and sidebar setup
-st.title("🤸‍♀️ Human Pose Estimation")
-st.markdown("An interactive app to estimate human poses in images using OpenCV.")
+# App title and header setup with custom styles
+st.markdown(
+    """
+    <style>
+        .main-title {
+            font-size: 2.5rem;
+            color: #FF5733;
+            text-align: center;
+        }
+        .sub-header {
+            font-size: 1.2rem;
+            color: #3498DB;
+        }
+        .sidebar-header {
+            font-size: 1.2rem;
+            color: #2ECC71;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
+st.markdown("<h1 class='main-title'>🤸‍♀️ Human Pose Estimation</h1>", unsafe_allow_html=True)
+st.markdown("<p class='sub-header'>Estimate human poses in images using OpenCV and Streamlit</p>", unsafe_allow_html=True)
+
+# Sidebar setup
 with st.sidebar:
-    st.header("📁 Upload Your Image")
+    st.markdown("<h2 class='sidebar-header'>📁 Upload Your Image</h2>", unsafe_allow_html=True)
     img_file_buffer = st.file_uploader("Upload an image (JPG, JPEG, PNG)", type=["jpg", "jpeg", "png"])
     thres = st.slider('🔍 Detection Threshold', min_value=0, value=20, max_value=100, step=5) / 100
+    st.markdown("<p style='text-align: center; color: #9B59B6;'>Made by OM</p>", unsafe_allow_html=True)
 
+# Image processing and display
 if img_file_buffer is not None:
     image = np.array(Image.open(img_file_buffer))
 else:
@@ -41,7 +66,7 @@ else:
     image = np.array(Image.open(demo_image))
     st.sidebar.info("Using default demo image.")
 
-st.subheader("Uploaded Image")
+st.markdown("### Uploaded Image")
 st.image(image, caption="Original Image", use_column_width=True)
 
 @st.cache_data
@@ -74,8 +99,11 @@ def poseDetector(frame):
 
 output = poseDetector(image)
 
-st.subheader("Estimated Pose")
+st.markdown("### Estimated Pose")
 st.image(output, caption="Pose Estimation Output", use_column_width=True)
 
 st.markdown("---")
-st.markdown("Built with ❤️ using Streamlit and OpenCV")
+st.markdown(
+    "<p style='text-align: center; color: #E74C3C;'>Built with ❤️ using Streamlit and OpenCV</p>",
+    unsafe_allow_html=True
+)
